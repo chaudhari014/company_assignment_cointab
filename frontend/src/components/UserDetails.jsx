@@ -15,12 +15,23 @@ const UserDetails = () => {
       .catch(error => console.error(error));
   }, []);
 
-  const isUserAdded = (userId) => {
-    // Add your logic to check if the user exists in your database
-    // For simplicity, assuming the user exists if it's in the list fetched from the API
-    return users.some(user => user.id === userId);
+  const handleAddButtonClick = (user) => {
+    axios.post(`${API}/users/add`, user)
+      .then(response => {
+        if (response.status === 200) {
+          // Update the local state to include the new user
+          let updatedUser=users.map((el)=>{
+            if(el.id===user.id ){
+              el.existsLocally=true
+              return el
+            }
+            return el
+          })
+          setUsers(updatedUser);
+        }
+      })
+      .catch(error => console.error(error));
   };
-
   return (
     <div>
       <h2>User Details</h2>

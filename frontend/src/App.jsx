@@ -8,6 +8,7 @@ import Home from './pages/Home';
 function App() {
   return (
     <div>
+      
       <Routes>
         <Route path="/" element={<Home/>} ></Route>
         <Route path="/posts/:userId" element={<PostList/>} ></Route>

@@ -1,16 +1,31 @@
 const { default: axios } = require("axios");
 const { User } = require("../model/user.model");
 
-const getAllUser=async (req, res) => {
+const getAllUser = async (req, res) => {
   try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-    const users = response.data;
-   return  res.json(users);
+    // Fetch users from the external API
+    const externalResponse = await axios.get('https://jsonplaceholder.typicode.com/users');
+    const externalUsers = externalResponse.data;
+
+    // Fetch users from your local database (replace this with your actual database query)
+    const localUsers = await User.find(); // Example: Assuming you are using Mongoose
+
+    // Combine external and local users
+    const allUsers = externalUsers.map(externalUser => {
+      const userExistsLocally = localUsers.some(localUser => localUser.id === externalUser.id);
+      return {
+        ...externalUser,
+        existsLocally: userExistsLocally,
+      };
+    });
+
+    return res.json({data:allUsers});
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
-}
+};
+
 
 const addUser=async (req, res) => {
   const userData = req.body;

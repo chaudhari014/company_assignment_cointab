@@ -1,26 +1,38 @@
-/* userDetails css */
 /* src/components/UserDetails.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Replace 'Roboto' with your desired font-family */
+}
+
 .user-details-container {
     margin: 20px;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .user-details-heading {
     color: #333;
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
 .add-button,
 .open-button {
     margin-top: 10px;
-    padding: 10px;
+    padding: 12px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover,
+.open-button:hover {
+    background-color: #0056b3;
 }
 
 .user-details-table {
@@ -32,7 +44,7 @@
 .user-details-table th,
 .user-details-table td {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 12px;
     text-align: left;
 }
 
@@ -40,8 +52,8 @@
     background-color: #f2f2f2;
 }
 
-/* style for home */
-/* src/pages/Home.css */
+/* Home.css: */
+
 .home-container {
     text-align: center;
     padding: 20px;
@@ -49,15 +61,79 @@
 
 .header {
     color: #007bff;
-    /* Set your desired text color */
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.user-info{
+    text-align: center;
 }
 
 .all-users-button {
     margin-top: 20px;
-    padding: 10px;
+    padding: 12px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+.all-users-button:hover {
+    background-color: #0056b3;
+}
+
+/* App.css: */
+
+.user-posts-container {
+    margin: 20px;
+}
+
+.user-info {
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.bulk-add-button,
+.download-excel-button {
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.bulk-add-button:hover,
+.download-excel-button:hover {
+    background-color: #0056b3;
+}
+
+.download-excel-button {
+    background-color: #28a745;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.postBox {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* Add more styles as needed */

@@ -1,2 +1,2 @@
-const API="http://localhost:8010"
+const API="https://user-post-srrz.onrender.com"
 export default API
